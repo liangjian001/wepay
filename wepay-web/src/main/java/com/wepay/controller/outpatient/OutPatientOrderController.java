@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
@@ -32,6 +33,7 @@ import com.wepay.business.outpatient.OutpatientOrderService;
 import com.wepay.business.weixin.WeiXinPayService;
 import com.wepay.modle.entities.outpatient.HSfdEntity;
 import com.wepay.modle.entities.outpatient.HSfdExample;
+import com.wepay.modle.entities.outpatient.HSfdExample.Criteria;
 import com.wepay.modle.share.Product;
 import com.wepay.modle.share.ResultInfo;
 import com.wepay.utils.ConfigUtil;
@@ -93,6 +95,29 @@ public class OutPatientOrderController {
 		return list;
 	}
 
+	@RequestMapping(value = "/patient/{sfzh}", method = RequestMethod.GET,produces = {"application/json;charset=utf-8"})
+	public Map<String ,Object> patient(@PathVariable("sfzh") String sfzh) {
+		Map<String ,Object> info = new HashMap<String ,Object>();
+		HSfdExample example = new HSfdExample();
+		 Criteria criteria = example.or();
+		 criteria = criteria.andDjhEqualTo("");
+		ResultInfo resultInfo = outpatientOrderService.getOutpatientOrderList(example);
+		resultInfo.setResultFlag(true);//方便测试
+		if (resultInfo.getResultFlag()) {
+			logger.info("查询到患者：");
+			info.put("resultcode", "0");//返回结果标示 0 ：成功  1：失败
+			info.put("resultmessage", "查询患者信息成功!");//返回结果提示
+			info.put("name", "桃乐比");//患者姓名
+			info.put("phone", "19900001111");//手机号码
+			info.put("idnumber", "110234199001012345");//身份证号
+			info.put("cardno", "121234567");
+			info.put("address", "湖南省长沙市衡山县");
+		} else {
+			logger.error("查询患者信息失败!");
+		}
+		return info;
+	}
+	
 	@RequestMapping("/pay")
     public void pay(Product product,ModelMap map,HttpServletResponse response) {
 		logger.info("H5支付(需要公众号内支付)");

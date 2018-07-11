@@ -17,15 +17,24 @@
     userId="sa" 
     password="123qwe!@#" />
     
-    <javaModelGenerator targetPackage="com.wepay.modle.entities.outpatient" 
+    <!-- 1患者信息表 -->
+    <javaModelGenerator targetPackage="com.wepay.modle.entities.patient" 
     targetProject="wepay-modle/src/main/java" />
-    
-    <sqlMapGenerator targetPackage="mapper.outpatient" targetProject="wepay-persistence/src/main/resources" />
-    
-    <javaClientGenerator targetPackage="com.wepay.persistence.mapper.outpatient" targetProject="wepay-persistence/src/main/java" type="XMLMAPPER" />
-    
-    <table tableName="h_sfd" >
+    <sqlMapGenerator targetPackage="mapper.patient" targetProject="wepay-persistence/src/main/resources" />
+    <javaClientGenerator targetPackage="com.wepay.persistence.mapper.patient" targetProject="wepay-persistence/src/main/java" type="XMLMAPPER" />
+    <table tableName="h_huanz" >
       <property name="rootClass" value="wepay-modle.src.main.java.com.wepay.modle.share.BaseEntity"/> 
     </table>
+    
+    <!-- 2门诊就诊记录表 
+    <javaModelGenerator targetPackage="com.wepay.modle.entities.outpatient" 
+    targetProject="wepay-modle/src/main/java" />
+    <sqlMapGenerator targetPackage="mapper.outpatient" targetProject="wepay-persistence/src/main/resources" />
+    <javaClientGenerator targetPackage="com.wepay.persistence.mapper.outpatient" targetProject="wepay-persistence/src/main/java" type="XMLMAPPER" />
+    <table tableName="h_sfd" >
+      <property name="rootClass" value="wepay-modle.src.main.java.com.wepay.modle.share.BaseEntity"/> 
+    </table>-->
+    
+    
   </context>
 </generatorConfiguration>
