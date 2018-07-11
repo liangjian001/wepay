@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>wepay.com</groupId>
+    <artifactId>wepay</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>wepay-web</artifactId>
+  <packaging>war</packaging>
+  <name>wepay-web Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+  	<!-- 引入实体工具模块 -->
+	<dependency>
+		<groupId>wepay.com</groupId>
+		<artifactId>wepay-utils</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<!-- 引入modle模块 -->
+	<dependency>
+		<groupId>wepay.com</groupId>
+		<artifactId>wepay-modle</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+    <!-- 引入business业务模块 -->
+	<dependency>
+		<groupId>wepay.com</groupId>
+		<artifactId>wepay-business</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
+  
+  <build>
+		<finalName>${project.build.finalName}</finalName>
+		<defaultGoal>compile</defaultGoal>
+		<plugins>
+			<!-- define the project compile level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>wepay.com</groupId>
+    <artifactId>wepay</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>wepay-modle</artifactId>
+  <name>wepay-modle</name>
+  <packaging>jar</packaging>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <skip_maven_deploy>false</skip_maven_deploy>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.finalName>wepay-modle</project.build.finalName>
+  </properties>
+  
+  <distributionManagement>
+		<repository>
+			<id>thirdparty</id>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+  </distributionManagement>
+	
+  <build>
+		<defaultGoal>compile</defaultGoal>
+		<finalName>${project.build.finalName}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>${jdk.version}</source>  <!-- 源代码使用的开发版本 -->
+					<target>${jdk.version}</target>  <!-- 需要生成的目标class文件的编译版本 -->
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>

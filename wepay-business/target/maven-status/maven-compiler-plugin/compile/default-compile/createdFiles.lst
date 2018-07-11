@@ -1,0 +1,4 @@
+com\wepay\business\weixin\WeiXinPayService.class
+com\wepay\business\outpatient\OutpatientOrderService.class
+com\wepay\business\weixin\impl\WeiXinPayServiceImpl.class
+com\wepay\business\outpatient\impl\OutpatientOrderServiceImpl.class
